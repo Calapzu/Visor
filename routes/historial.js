@@ -37,4 +37,21 @@ consultasRouter.get("/", (req, res) => {
     });
   });
 
+  consultasRouter.delete("/:id", (req, res) => {
+    const { id } = req.params;
+    const query = `
+      DELETE FROM usuario WHERE id_usuario = \$1;
+    `;
+    pg.query(query, [id], (err, result) => {
+      if (!err) {
+        console.log(`Registro con ID ${id} eliminado`);
+        res.sendStatus(204); // Respuesta sin contenido
+      } else {
+        console.log(err);
+        res.sendStatus(500); // Error del servidor
+      }
+    });
+  });
+  
+
 module.exports = consultasRouter;

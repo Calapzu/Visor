@@ -1,0 +1,147 @@
+[class*="entypo-"]:before {
+    font-family: 'entypo', sans-serif;
+    padding-right: 10px;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 100%;
+    background: #829292;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+img {
+    position: absolute;
+}
+
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+}
+
+#browser {
+    margin: 10px auto;
+    color: white;
+    width: 95%;
+    height: 100%;
+    -webkit-box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+#browser-bar {
+    background: #394141;
+    width: 100%;
+    padding: 8px;
+    margin: 0 auto;
+    font-weight: 300;
+    font-size: 0.9em;
+    position: relative;
+}
+
+#browser-bar p {
+    text-align: center;
+}
+
+#browser-bar .circles {
+    border-radius: 10px;
+    height: 13px;
+    width: 13px;
+    background: #ff3434;
+    float: left;
+    margin-left: 7px;
+    margin-top: 3px;
+}
+
+#browser-bar .circles:nth-of-type(2) {
+    background: #ffdd33;
+}
+
+#browser-bar .circles:nth-of-type(3) {
+    background: #67b678;
+}
+
+.arrow {
+    position: absolute;
+    right: 3px;
+    top: 6px;
+    font-size: 1.2em;
+    color: #8e9699;
+}
+
+#content {
+    background: #454f4f;
+    padding: 20px;
+    align-content: center;
+}
+
+#content:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media all and (max-width: 780px) {
+    #content #right {
+        width: 100%;
+    }
+}
+
+.tittle {
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+}
+
+#historial {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#historial table {
+    width: 100%;
+}
+
+#historial th,
+#historial td {
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: left;
+    text-align: center;
+}
+
+#historial th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+.user-data {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #000;
+    padding: 10px;
+}
+
+.btn-accion {
+    background-color: #333;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.hidden-row {
+    display: none;
+}
