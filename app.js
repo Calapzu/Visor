@@ -4,6 +4,8 @@ const path = require('path');
 const fs = require("fs");
 const bodyParser = require("body-parser");
 const app = express();
+const morgan = require("morgan");
+const cors = require("cors");
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -13,8 +15,11 @@ const port = process.env.port || 3010;
 
 const htmlPath = path.join(__dirname + "/express/index.html");
 
+//middleware
+app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.static("express"));
+app.use(cors());
 
 // default URL for website
 app.get('/', function (req, res) {
