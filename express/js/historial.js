@@ -43,21 +43,34 @@ fetch("http://localhost:3000/api/historial")
     function performAction(action, obj, row) {
       console.log("Realizando acción:", action);
       if (action === "action1") {
-        // Eliminar el registro correspondiente del servidor
-        fetch(`http://localhost:3000/api/historial/${obj.id}`, {
-          method: "DELETE",
-        })
-          .then((response) => {
-            if (response.status === 204) {
-              // Eliminar la fila correspondiente de la tabla
-              row.remove();
-            } else {
-              console.log("Error al eliminar el registro");
-            }
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        // Mostrar una alerta de SweetAlert antes de eliminar el registro
+        Swal.fire({
+          title: '¿Estás seguro de que deseas eliminar este registro?',
+          text: 'Este registro se eliminará y no se podrá recuperar.',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Sí, eliminar',
+          cancelButtonText: 'Cancelar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Eliminar el registro correspondiente del servidor
+            fetch(`http://localhost:3000/api/historial/${obj.id}`, {
+              method: "DELETE",
+            })
+              .then((response) => {
+                if (response.status === 204) {
+                  // Eliminar la fila correspondiente de la tabla
+                  row.remove();
+                } else {
+                  console.log("Error al eliminar el registro");
+                }
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+          }
+        });
       }
     }
+    
   });
