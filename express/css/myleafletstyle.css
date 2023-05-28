@@ -4,25 +4,18 @@
     box-shadow: 5px 5px 5px #888;
 }
 
-.info {
-    padding: 6px 6px;
-    font: 14px/16px Arial, Helvetica, sans-serif;
-    background: white;
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    text-align: center;
-}
-
 .div {
     position: relative;
 }
 
 .info {
-    left: -850%;
-    position: absolute;
-    top: 12%;
-    transform: translate(-50%, -50%);
+    padding: 6px 8px;
+
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
 }
 
 .info h2 {

@@ -104,7 +104,8 @@ var EstiloParamos = {
 // Interaccion
 function InteraccionDep(feature, layer) {
   if (feature.properties && feature.properties.nombre) {
-    var {__gid, nombre, dpto_cnmbr, mpio_cnmbr, coordenadas} = feature.properties;
+    var { __gid, nombre, dpto_cnmbr, mpio_cnmbr, coordenadas } =
+      feature.properties;
     var coordenadas = L.latLngBounds(feature.geometry.coordinates).getCenter();
     coordenadas =
       coordenadas.lat.toFixed(6) + ", " + coordenadas.lng.toFixed(6);
@@ -132,7 +133,7 @@ function InteraccionDep(feature, layer) {
     });
 
     // Agrega el evento popupopen al objeto layer
-    layer.on('popupopen', function() {
+    layer.on("popupopen", function () {
       var popupJson = {
         id: __gid,
         nombre: nombre,
@@ -143,14 +144,10 @@ function InteraccionDep(feature, layer) {
       console.log(JSON.stringify(popupJson));
 
       // Guarda el objeto popupJson en el localStorage
-      window.localStorage.setItem('popupJson', JSON.stringify(popupJson));
+      window.localStorage.setItem("popupJson", JSON.stringify(popupJson));
     });
   }
 }
-
-
-
-
 
 // Capa PARAMOS WFS
 fetch(wfsURL_paramos)
@@ -242,3 +239,69 @@ L.control
     maxWindth: 100,
   })
   .addTo(map);
+
+// Insertando un título en el mapa
+var title = L.control();
+title.onAdd = function (map) {
+  var div = L.DomUtil.create("div", "info");
+  div.innerHTML += "<h2>Paramos</h2>";
+  return div;
+};
+title.addTo(map);
+
+// Insertando una leyenda en el mapa
+var legend = L.control();
+legend.onAdd = function (map) {
+  var div = L.DomUtil.create("div", "info legend");
+  div.innerHTML +=
+    '<img src="../img/Ppal art meme.jpg" alt="legend" width="101" height="60">';
+  return div;
+};
+legend.addTo(map);
+
+// --------------------------------------------------------------------------------------------------
+// Create the control
+var searchControl = L.control({ position: "topright" });
+
+// Set the HTML for the control
+searchControl.onAdd = function (map) {
+  var div = L.DomUtil.create("div", "search-control");
+  div.innerHTML =
+    '<div class="input-group">' +
+    '<input class="form-control" type="text" placeholder="Buscar Páramo..." id="search-value" />' +
+    '<div class="input-group-append mr-2">' +
+    '<button class="btn btn-info" id="search">' +
+    '<i class="fas fa-search"></i>' +
+    "</button>" +
+    "</div>" +
+    "</div>";
+  return div;
+};
+// Add the control to the map
+searchControl.addTo(map);
+
+// Función Search - Paramo
+const searchInput = document.getElementById("search-value");
+const searchButton = document.getElementById("search");
+
+const searchParamo = (paramo) => {
+  return fetch(wfsURL_paramos)
+    .then((res) => res.json())
+    .then((data) => {
+      return data.features.find(
+        ({ properties }) => (properties.nombre = paramo)
+      );
+    });
+};
+
+searchButton.addEventListener("click", async () => {
+  const paramo = searchInput.value;
+  const geoJSON = await searchParamo(paramo);
+
+  const geoJSONLayer = L.geoJSON(geoJSON, {
+    style: EstiloParamos,
+    onEachFeature: InteraccionDep,
+  }).addTo(map);
+
+  map.fitBounds(geoJSONLayer.getBounds());
+});

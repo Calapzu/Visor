@@ -12,6 +12,11 @@
 
   <!---- Sweet Alert -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!---- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
+
 </head>
 
 <body>
@@ -31,36 +36,33 @@
         </div>
       </div>
       <div id='right'>
-        <form>
-          <p>Nombre Páramo</p>
-          <input name="paramo" id="paramoid" placeholder='' value="" type='text' autofocus>
-          <p>Departamento Páramo</p>
-          <input name="departamento" id="departamentoid" placeholder='' value="" type='text' autofocus>
-          <p>Municipio Páramo</p>
-          <input name="municipio" id="municipioid" placeholder='' value="" type='text' autofocus>
-          <p>Coordenadas</p>
-          <input name="coordenadas" id="cooid" placeholder='' value="" type='text' autofocus>
-          <p>Nombre Visitante</p>
-          <input name="usuario" id="usuarioid" placeholder='Digite Su Nombre' type='text' autofocus>
-          <button onclick="enviarBtn" type="submit" class="send-btn" >Enviar</button>
-          <button type="reset" class="clear-btn" >Limpiar</button>
-          <button type="button" name="historial" class="historial-btn"
-            onclick="window.location.href='./html/historial.html'">
-            <i class="fa-solid fa-book"></i>
-            Historial
-          </button>
-        </form>
+          <form>
+            <p>Nombre Páramo</p>
+            <input name="paramo" id="paramoid" placeholder='' value="" type='text' autofocus>
+            <p>Departamento Páramo</p>
+            <input name="departamento" id="departamentoid" placeholder='' value="" type='text' autofocus>
+            <p>Municipio Páramo</p>
+            <input name="municipio" id="municipioid" placeholder='' value="" type='text' autofocus>
+            <p>Coordenadas</p>
+            <input name="coordenadas" id="cooid" placeholder='' value="" type='text' autofocus>
+            <p>Nombre Visitante</p>
+            <input name="usuario" id="usuarioid" placeholder='Digite Su Nombre' type='text' autofocus>
+            <button onclick="enviarBtn" type="submit" class="send-btn">Enviar</button>
+            <button type="reset" class="clear-btn">Limpiar</button>
+            <button type="button" name="historial" class="historial-btn"
+              onclick="window.location.href='./html/historial.html'">
+              <i class="fa-solid fa-book"></i>
+              Historial
+            </button>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-  <!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <!-- partial -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-  <!-- My Scripts -->
-  <script src="./js/localStorage.js"></script>
-
-  <!-- <script src="./js/sendData.js"></script> -->
-
+    <!-- My Scripts -->
+    <script src="./js/localStorage.js"></script>
 </body>
 
 </html>
