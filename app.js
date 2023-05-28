@@ -27,7 +27,7 @@ app.use(
 );
 
 app.get("/", function (req, res) {
-  res.sendFile(__dirname + "./visor/index.html");
+  res.sendFile(__dirname + "/express/index.html");
 });
 
 // routes

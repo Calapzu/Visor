@@ -45,7 +45,7 @@ img {
 #browser-bar {
   background: #394141;
   width: 100%;
-  padding: 8px;
+  padding: 4px;
   margin: 0 auto;
   font-weight: 300;
   font-size: 0.9em;
@@ -346,5 +346,43 @@ img {
 }
 
 .historial-icon {
+  margin-left: 10px;
+}
+
+.send-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #2ece6b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.send-btn:hover {
+  background-color: #2ece6b;
+}
+
+.send-icon {
+  margin-left: 10px;
+}
+
+.clear-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #ce2e2e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.clear-btn:hover {
+  background-color: #ce2e2e;
+}
+
+.clear-icon {
   margin-left: 10px;
 }

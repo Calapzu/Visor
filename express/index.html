@@ -9,6 +9,9 @@
 
   <!---- FontAwesome -->
   <script src="https://kit.fontawesome.com/7fc5c36689.js" crossorigin="anonymous"></script>
+
+  <!---- Sweet Alert -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -23,12 +26,12 @@
     <div id='content'>
       <div id='left'>
         <div id='map'>
-          <iframe src="./html/Visor.html" style="border:0" allowfullscreen="" frameborder="0" height="100%"
-            width="100%"></iframe>
+          <iframe id="mapframe" src="./html/Visor.html" style="border:0" allowfullscreen="" frameborder="0"
+            height="100%" width="100%"></iframe>
         </div>
       </div>
       <div id='right'>
-        <form role="form" method="post" action="/">
+        <form>
           <p>Nombre Páramo</p>
           <input name="paramo" id="paramoid" placeholder='' value="" type='text' autofocus>
           <p>Departamento Páramo</p>
@@ -39,20 +42,24 @@
           <input name="coordenadas" id="cooid" placeholder='' value="" type='text' autofocus>
           <p>Nombre Visitante</p>
           <input name="usuario" id="usuarioid" placeholder='Digite Su Nombre' type='text' autofocus>
-          <input type="submit" value="Enviar">
-          <input type="reset" value="Limpiar">
+          <button onclick="enviarBtn" type="submit" class="send-btn" >Enviar</button>
+          <button type="reset" class="clear-btn" >Limpiar</button>
           <button type="button" name="historial" class="historial-btn"
             onclick="window.location.href='./html/historial.html'">
             <i class="fa-solid fa-book"></i>
             Historial
           </button>
-
         </form>
       </div>
     </div>
   </div>
   <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+  <!-- My Scripts -->
+  <script src="./js/localStorage.js"></script>
+
+  <!-- <script src="./js/sendData.js"></script> -->
 
 </body>
 
